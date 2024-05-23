@@ -2,6 +2,8 @@
 mod tests {
     use googletest::assert_that;
 
+    use googletest::prelude::empty;
+
     // The default `#[test]` attribute is not enough if you want to use some of
     // `googletest`'s macros (e.g. `expect_that!`). You need to use `#[googletest::test]` instead.
     // Our recommendation: if you're using `googletest`, default to using `#[googletest::test]`
@@ -15,7 +17,7 @@ mod tests {
         // It takes two arguments: the value you want to assert on, and the **matcher** you want to use.
         // You can find all the built-in matchers in the [`matchers`](https://docs.rs/googletest/0.11.0/googletest/index.html#available-matchers)
         // module of the `googletest` crate. Find the right one!
-        assert_that!(v, todo!());
+        assert_that!(v, empty());
         // ☝️Assert it's empty
     }
 
@@ -23,11 +25,13 @@ mod tests {
     fn one_value() {
         let v: Vec<i32> = vec![-1];
         // Assert it's empty
+        assert_that!(v, empty());
     }
 
     #[googletest::test]
     fn two_values() {
         let v: Vec<i32> = vec![-1, 1];
         // Assert it's empty
+        assert_that!(v, empty());
     }
 }
