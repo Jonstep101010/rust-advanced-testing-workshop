@@ -73,7 +73,7 @@ mod tests {
 	fn it_does_max_retries_if_all_calls_fail() {
 		let mut mock_client = MockClient::new();
 		// TODO: setup mock_client to fail all calls
-        mock_client.expect_call().returning(|_| {
+		mock_client.expect_call().returning(|_| {
 			Err(Box::new(std::io::Error::new(
 				std::io::ErrorKind::Other,
 				"Failed",
